@@ -1,0 +1,43 @@
+************************  ************************
+*  Interactive Image Technologies                *
+*                                                *
+*  This File was created by:                     *
+*    Electronics Workbench to SPICE netlist      *
+*    conversion DLL                              *
+*                                                *
+*  Tue Mar 07 12:59:30 2006                      *
+**************************************************
+
+* <Subcircuit>(s)
+Xsub_W_0 OPEN_1 OPEN_2 OPEN_3 OPEN_4 OPEN_5 OPEN_6 W
+Roc_OPEN_1 OPEN_1 0 1Tohm
+Roc_OPEN_2 OPEN_2 0 1Tohm
+Roc_OPEN_3 OPEN_3 0 1Tohm
+Roc_OPEN_4 OPEN_4 0 1Tohm
+Roc_OPEN_5 OPEN_5 0 1Tohm
+Roc_OPEN_6 OPEN_6 0 1Tohm
+
+* Subcircuits
+.SUBCKT W 3 4 5 6 7 0 
+    * <Contact>(s)
+
+    * Voltage-Controlled Voltage Source(s)
+    * 
+    E_VCVS_V1 2 0 3 4 1
+
+    * Current-Controlled Voltage Source(s)
+    * 
+    H_CCVS_V2 1 0 V_CCVS_V2 1
+    V_CCVS_V2 5 6 DC 0
+
+    * Connector(s)
+    * node = 0, label = 
+
+    * Multiplier(s)
+    * 
+    BMULT_A1 7 0 v=1*(1*(v(1)+0)*1*(v(2)+0))+0
+
+.ENDS
+* Misc
+.OPTIONS ITL4=25
+.END
